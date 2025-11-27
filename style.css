@@ -110,31 +110,39 @@ body {
 
 /* Dégradés dynamiques différents */
 .category-btn:nth-child(1) {
-    background: linear-gradient(90deg, #6a4c93, #8c52ff);
+    background: linear-gradient(90deg, #d0305b, #ff577f);
+    /* Security */
 }
 
 .category-btn:nth-child(2) {
-    background: linear-gradient(90deg, #17c3b2, #1982c4);
+    background: linear-gradient(90deg, #99ACFF, #1982c4);
+    /* Communication */
 }
 
 .category-btn:nth-child(3) {
     background: linear-gradient(90deg, #ffcb2b, #ff8c00);
+    /* Shopping / Buying Online */
 }
 
 .category-btn:nth-child(4) {
-    background: linear-gradient(90deg, #ff577f, #ff2e63);
+    background: linear-gradient(90deg, #cf27db, #8d0da6);
+    /* Apps */
 }
 
 .category-btn:nth-child(5) {
-    background: linear-gradient(90deg, #00b894, #00cec9);
+    background: linear-gradient(90deg, #78c451, #55a630);
+    /* Gen Z Habits */
 }
 
 .category-btn:nth-child(6) {
-    background: linear-gradient(90deg, #ff9a3c, #ff6f3c);
+
+    background: linear-gradient(90deg, #00b894, #00cec9);
+    /* Objects of the Future */
 }
 
 .category-btn:nth-child(7) {
-    background: linear-gradient(90deg, #2d98da, #3867d6);
+    background: linear-gradient(90deg, #ff9a3c, #ff6f3c);
+    /* Web Expressions */
 }
 
 .category-btn:hover {
