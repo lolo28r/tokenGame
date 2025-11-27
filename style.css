@@ -1,0 +1,330 @@
+/* ---------- RESET ---------- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Inter", Arial, sans-serif;
+}
+
+/* ---------- BACKGROUND ANIMÉ ---------- */
+body {
+    background: linear-gradient(135deg, #001d3d, #003566, #00a6fb, #90e0ef);
+
+    background-size: 200% 200%;
+    animation: gradientMove 6s ease infinite;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+@keyframes gradientMove {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+/* ---------- CONTAINER ---------- */
+.container {
+    background: white;
+    width: 100%;
+    max-width: 450px;
+    padding: 32px;
+    border-radius: 25px;
+    box-shadow: 0 10px 35px rgba(0, 0, 0, 0.25);
+    text-align: center;
+    border: 3px solid rgba(255, 255, 255, 0.75);
+    animation: fadeInScale 0.5s ease-out forwards;
+}
+
+@keyframes fadeInScale {
+    0% {
+        opacity: 0;
+        transform: scale(0.85) translateY(25px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
+}
+
+/* ---------- TITLES ---------- */
+.title {
+    font-size: 2.2rem;
+    font-weight: 900;
+    background: linear-gradient(90deg, #ff7a5c, #ff2e91);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 10px;
+    animation: fadeIn 0.6s ease-out;
+}
+
+.subtitle {
+    font-size: 1.15rem;
+    color: #555;
+    margin-bottom: 25px;
+    animation: fadeIn 0.8s ease-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ---------- CATEGORIES ---------- */
+.categories {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.category-btn {
+    padding: 16px;
+    border: none;
+    border-radius: 18px;
+    font-size: 1.25rem;
+    font-weight: 700;
+    cursor: pointer;
+    color: white;
+    transition: 0.25s ease;
+    transform-origin: center;
+    animation: slideUp 0.4s ease-out backwards;
+}
+
+/* Dégradés dynamiques différents */
+.category-btn:nth-child(1) {
+    background: linear-gradient(90deg, #6a4c93, #8c52ff);
+}
+
+.category-btn:nth-child(2) {
+    background: linear-gradient(90deg, #17c3b2, #1982c4);
+}
+
+.category-btn:nth-child(3) {
+    background: linear-gradient(90deg, #ffcb2b, #ff8c00);
+}
+
+.category-btn:nth-child(4) {
+    background: linear-gradient(90deg, #ff577f, #ff2e63);
+}
+
+.category-btn:nth-child(5) {
+    background: linear-gradient(90deg, #00b894, #00cec9);
+}
+
+.category-btn:nth-child(6) {
+    background: linear-gradient(90deg, #ff9a3c, #ff6f3c);
+}
+
+.category-btn:nth-child(7) {
+    background: linear-gradient(90deg, #2d98da, #3867d6);
+}
+
+.category-btn:hover {
+    transform: translateY(-4px) scale(1.03);
+    box-shadow: 0 10px 22px rgba(0, 0, 0, 0.25);
+}
+
+.category-btn:active {
+    transform: scale(0.95);
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ---------- QUESTION ---------- */
+.question {
+    background: #f6edff;
+    padding: 22px;
+    border-radius: 20px;
+    font-size: 1.28rem;
+    font-weight: 800;
+    color: #532b88;
+    line-height: 1.4;
+    border: 3px solid #d3c2ff;
+    margin-bottom: 25px;
+    animation: popIn 0.35s ease-out;
+}
+
+@keyframes popIn {
+    0% {
+        transform: scale(0.9);
+        opacity: 0;
+    }
+
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+/* ---------- ANSWERS ---------- */
+.answers {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.answers button {
+    padding: 18px;
+    border: none;
+    border-radius: 15px;
+    font-size: 1.15rem;
+    font-weight: 700;
+    cursor: pointer;
+    color: white;
+    transition: 0.25s ease;
+    animation: fadeSlide 0.4s ease both;
+}
+
+.answers button:nth-child(1) {
+    background: linear-gradient(90deg, #ff9a3c, #ff6359);
+}
+
+.answers button:nth-child(2) {
+    background: linear-gradient(90deg, #17c3b2, #1982c4);
+}
+
+.answers button:nth-child(3) {
+    background: linear-gradient(90deg, #ffcb2b, #ff8c00);
+}
+
+.answers button:nth-child(4) {
+    background: linear-gradient(90deg, #9d4edd, #7b2cbf);
+}
+
+@keyframes fadeSlide {
+    from {
+        opacity: 0;
+        transform: translateX(-15px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.answers button:hover {
+    transform: translateY(-4px) scale(1.03);
+    box-shadow: 0 10px 22px rgba(0, 0, 0, 0.25);
+}
+
+.answers button:active {
+    transform: scale(0.95);
+}
+
+.answers button:disabled {
+    opacity: 0.45;
+    filter: grayscale(40%);
+    cursor: not-allowed;
+}
+
+/* ---------- RESULT FEEDBACK ---------- */
+.result {
+    margin-top: 25px;
+    font-size: 1.4rem;
+    font-weight: 800;
+    min-height: 35px;
+    transition: 0.3s ease;
+}
+
+/* Animation SUCCESS */
+.result.good {
+    color: #00c853;
+    animation: pulseSuccess 0.5s ease forwards;
+    text-shadow: 0 0 12px rgba(0, 200, 83, 0.5);
+}
+
+@keyframes pulseSuccess {
+    0% {
+        transform: scale(0.9);
+    }
+
+    50% {
+        transform: scale(1.05);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+/* Animation ERROR */
+.result.bad {
+    color: #ff1744;
+    animation: shakeError 0.4s ease;
+    text-shadow: 0 0 10px rgba(255, 23, 68, 0.5);
+}
+
+@keyframes shakeError {
+    0% {
+        transform: translateX(0);
+    }
+
+    25% {
+        transform: translateX(-5px);
+    }
+
+    50% {
+        transform: translateX(5px);
+    }
+
+    75% {
+        transform: translateX(-3px);
+    }
+
+    100% {
+        transform: translateX(0);
+    }
+}
+
+/* ---------- BACK BUTTON ---------- */
+.back-btn {
+    margin-top: 20px;
+    padding: 14px 20px;
+    border: none;
+    border-radius: 15px;
+    font-size: 1.1rem;
+    font-weight: 700;
+    cursor: pointer;
+    color: white;
+    background: linear-gradient(90deg, #1982c4, #17c3b2);
+    box-shadow: 0 6px 12px rgba(25, 130, 196, 0.35);
+    transition: 0.25s ease;
+}
+
+.back-btn:hover {
+    transform: translateY(-4px) scale(1.03);
+    box-shadow: 0 12px 22px rgba(0, 0, 0, 0.25);
+}
+
+.back-btn:active {
+    transform: scale(0.95);
+}
