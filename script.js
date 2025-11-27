@@ -104,7 +104,6 @@ function chooseCategory(family) {
 
     showRandomQuestion();
 }
-
 // ----- Show random question -----
 function showRandomQuestion() {
     if (!selectedCategory) return;
@@ -120,29 +119,38 @@ function showRandomQuestion() {
     const answersDiv = document.getElementById('answers');
     answersDiv.innerHTML = '';
 
-    question.choices.forEach((choice, i) => {
+    // Mélanger les réponses
+    const choices = question.choices.map((choice, i) => ({ choice, index: i }));
+    for (let i = choices.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [choices[i], choices[j]] = [choices[j], choices[i]];
+    }
+
+    choices.forEach(obj => {
         const btn = document.createElement('button');
-        btn.textContent = choice;
+        btn.textContent = obj.choice;
         btn.style.background = question.couleur;
-        btn.onclick = () => checkAnswer(question, i);
+        btn.onclick = () => checkAnswer(question, obj.index, choices);
         answersDiv.appendChild(btn);
     });
 
-    const result = document.getElementById('result');
-    result.textContent = '';
-    result.className = 'result';
-
+    document.getElementById('result').textContent = '';
+    document.getElementById('result').className = 'result';
     usedToken = false;
 }
 
 // ----- Check answer -----
-function checkAnswer(question, index) {
+function checkAnswer(question, chosenIndex, shuffledChoices) {
     if (usedToken) return;
-
     usedToken = true;
-    const result = document.getElementById('result');
 
-    if (index === question.answer) {
+    const result = document.getElementById('result');
+    const buttons = document.querySelectorAll('#answers button');
+
+    // Identifier le bouton de la bonne réponse dans l'ordre mélangé
+    const correctShuffledIndex = shuffledChoices.findIndex(obj => obj.index === question.answer);
+
+    if (chosenIndex === question.answer) {
         result.innerHTML = `✅ Well done! You can use your Replay Token.<br><small>${question.explanation}</small>`;
         result.classList.add('good');
     } else {
@@ -150,9 +158,16 @@ function checkAnswer(question, index) {
         result.classList.add('bad');
     }
 
-    document.querySelectorAll('#answers button').forEach(btn => btn.disabled = true);
+    // Colorier uniquement la bonne réponse, les autres en gris
+    buttons.forEach((btn, i) => {
+        if (i === correctShuffledIndex) {
+            btn.style.background = question.couleur;
+        } else {
+            btn.style.background = '#ccc';
+        }
+        btn.disabled = true;
+    });
 }
-
 // ----- Back to categories -----
 function showCategories() {
     document.getElementById('question').style.display = 'none';
