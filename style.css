@@ -8,7 +8,7 @@
 
 /* ---------- BACKGROUND ANIMÉ ---------- */
 body {
-    background: linear-gradient(135deg, #001d3d, #003566, #00a6fb, #90e0ef);
+    background: linear-gradient(135deg, #492b67, #844bbc, #439EE5);
 
     background-size: 200% 200%;
     animation: gradientMove 6s ease infinite;
